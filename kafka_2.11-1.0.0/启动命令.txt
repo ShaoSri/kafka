@@ -1,0 +1,21 @@
+﻿
+
+---kafka启动命令
+  --zookeeper启动命令
+   zookeeper-server-start.bat 2121 config/zookeeper.properties
+  
+  --启动服务器
+   kafka-server-start.bat D:/kafka/kafka_2.11-1.0.0/config/server.properties
+   
+   --创建消息分类
+   kafka-topics.bat --create --zookeeper localhost:2121 --replication-factor 1 --partitions 1 --topic aaron
+   
+   --可以通过list topic命令查看所有的主题
+   kafka-topics.bat --list --zookeeper localhost:2121
+
+   --发送消息
+   kafka-console-producer.bat --broker-list localhost:9092 --topic aaron
+    发送消息：This is a message
+	
+   --启动消费者
+   kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic aaron --from-beginning
